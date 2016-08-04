@@ -5,7 +5,7 @@ RUN apt-get install -y build-essential nodejs nodejs-legacy
 
 WORKDIR /app
 
-COPY project.json project.lock.json /app/
+COPY project.json .
 RUN ["dotnet", "restore"]
 
 COPY . /app
