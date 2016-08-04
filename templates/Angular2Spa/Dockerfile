@@ -3,12 +3,12 @@ FROM microsoft/dotnet:latest
 RUN apt-get update
 RUN apt-get install -y build-essential nodejs nodejs-legacy
 
-COPY . /app
-
 WORKDIR /app
 
+COPY project.json project.lock.json /app/
 RUN ["dotnet", "restore"]
 
+COPY . /app
 RUN ["dotnet", "build"]
 
 EXPOSE 5000/tcp
